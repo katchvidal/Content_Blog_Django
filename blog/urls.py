@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import home , generales, programacion, tecnologia, tutoriales, videojuegos
+from .views import home , generales, programacion, tecnologia, tutoriales, videojuegos, detailview
 urlpatterns = [
     path('', home, name = 'home'),
     path('generales/', generales, name = 'generales'),
@@ -23,4 +23,5 @@ urlpatterns = [
     path('tecnologia/', tecnologia, name = 'tecnologia'),
     path('videojuegos/', videojuegos, name = 'videojuegos'),
     path('tutoriales/', tutoriales, name = 'tutoriales'),
+    path('<slug:slug>/', detailview, name = 'detailview')
 ]

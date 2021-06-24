@@ -1,22 +1,23 @@
 {% extends 'index.html' %}
-{% load staticfiles %}
+{% load static %}
 
 {% block titulo %}
-  {{ detalle_post.titulo }}
+  {{ detailview.titulo }}
 {% endblock titulo %}
 
 {% block imagen %}
-  {{ detalle_post.imagen }}
+  {{ detailview.imagen }}
 {% endblock imagen %}
 
 {% block titulo_principal %}
-   <h1>{{ detalle_post.titulo }}</h1>
-   <p>{{ detalle_post.descripcion }}</p>
+   <h1>{{ detailview.titulo }}</h1>
+   <p>{{ detailview.descripcion }}</p>
+   <p class="post-meta"> <strong> {{ detailview.autor }} </strong> </p>
 {% endblock titulo_principal %}
 
 {% block barra_busqueda %}
 {% endblock barra_busqueda %}
 
 {% block contenido %}
-  {{ detalle_post.contenido | safe }}
+  {{ detailview.contenido | safe }}
 {% endblock contenido %}
