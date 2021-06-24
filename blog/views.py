@@ -1,15 +1,19 @@
+#   Renderizar Templates
 from django.shortcuts import render
 #   Importar Modelo
 from .models import Post, Categoria
 #   Retornar un Error 404 Si no se encuentra
 from django.shortcuts import get_object_or_404
-
 #   Fucionalidad Q
 from django.db.models import Q
+#   Paginacion de Django
+from django.core.paginator import Paginator
+
+
+
+
 
 # Create your views here.
-
-
 def home(request):
 
     #   Barra de Busqueda
@@ -21,6 +25,13 @@ def home(request):
             Q(titulo__icontains = queryset) |
             Q(descripcion__icontains = queryset)
         ).distinct()
+
+
+    #Paginator
+        #   Contenido de la lista y Numero de Objetos por Pagina
+    paginator = Paginator(posts, 2)
+    page = request.GET.get('Page')
+    posts = paginator.get_page(page)
 
     return render(request, 'index.html', {
         'posts' : posts
