@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Categoria, Autor
+from .models import Categoria, Autor, Post
 
 #   Importar y Exportar del Administrador de Django
 from import_export import resources
@@ -29,3 +29,4 @@ class AutorAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 
 admin.site.register(Categoria, CategoryAdmin)
 admin.site.register(Autor, AutorAdmin)
+admin.site.register(Post)
